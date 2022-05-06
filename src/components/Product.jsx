@@ -18,9 +18,10 @@ const _handleSubmit = (e, dispatch) => {
   }
   dispatch({
     type: "ADD_TO_CART",
-    product : selectedProduct,
+    product: selectedProduct,
   })  
-}
+};
+
 
   return (
     <div>

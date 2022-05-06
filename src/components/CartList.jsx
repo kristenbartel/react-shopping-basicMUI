@@ -19,6 +19,14 @@ const buttons = [
 
 export default function CartList() {
 const [ state, dispatch ] = useContext(StateContext);
+const _handleDelete = (e, dispatch) => {
+    e.preventDefault();
+    dispatch({
+      type: "DELETE_FROM_CART",
+      state: state
+    })  
+    console.log(state);
+  };
 
   return (
       <>
@@ -33,7 +41,7 @@ const [ state, dispatch ] = useContext(StateContext);
                 <ListItemText primary= {i.productName} secondary={`$${i.price}`} />
                 <p>{i.qty}</p>
                 <IconButton aria-label="delete" size="small">
-                <DeleteIcon fontSize="inherit" />
+                <DeleteIcon fontSize="inherit" onClick={(e) => _handleDelete(e, dispatch)}/>
                 </IconButton>
              </ListItem>    
        ))

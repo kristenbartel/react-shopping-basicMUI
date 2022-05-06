@@ -12,7 +12,7 @@ const reducer = (state, action) => {
   const {product} = action;
   switch (action.type) {
   case "ADD_TO_CART":
-    const doesExist = state.find(i => i.id === product.id);
+    {const doesExist = state.find(i => i.id === product.id);
     return doesExist ?
       (state.map(i => i.id === product.id ? {...i, qty: i.qty + 1} : i))
       :
@@ -25,7 +25,17 @@ const reducer = (state, action) => {
         image: product.image,
         qty: 1
        }, 
-      ];
+      ]};
+  case "DELETE_FROM_CART":
+      {const doesExist = state.filter(i => i.id === state.id);
+        console.log(state)
+        return doesExist ?
+        (state.map(i => i.id === state.id ? {...i, qty: i.qty - 1} : i))
+        : 
+        [
+          ...state,
+        ]
+      };
     default: return state;
 }};
 
