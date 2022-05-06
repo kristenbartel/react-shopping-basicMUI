@@ -6,9 +6,9 @@ function Cart() {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
     // const onAdd = (product) => {
-    //     const doesExist = cartItems.find(x => x.id === product.id);
+    //     const doesExist = cartItems.find(i => i.id === product.id);
     //     if(doesExist){
-    //         setCartItems(cartItems.map(x => x.id === product.id ? {...doesExist, qty: doesExist.qty + 1} : x));
+    //         setCartItems(cartItems.map(i => i.id === product.id ? {...doesExist, qty: doesExist.qty + 1} : x));
     //     } else {
     //         setCartItems([...cartItems, {...product, qty: 1}])
     //     }
