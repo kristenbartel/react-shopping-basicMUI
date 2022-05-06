@@ -12,13 +12,18 @@ const reducer = (state, action) => {
   const {product} = action;
   switch (action.type) {
   case "ADD_TO_CART":
-    return [
+    const doesExist = state.find(i => i.id === product.id);
+    return doesExist ?
+      (state.map(i => i.id === product.id ? {...i, qty: i.qty + 1} : i))
+      :
+      [
       ...state,
         {
         id: product.id,
         productName: product.productName,
         price: product.price,
-        image: product.image
+        image: product.image,
+        qty: 1
        }, 
       ];
     default: return state;

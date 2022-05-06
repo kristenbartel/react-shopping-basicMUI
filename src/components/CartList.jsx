@@ -30,7 +30,8 @@ const [ state, dispatch ] = useContext(StateContext);
                 <img src={i.image} alt={i.productName} />
                 </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary= {i.productName} secondary={i.price} />
+                <ListItemText primary= {i.productName} secondary={`$${i.price}`} />
+                <p>{i.qty}</p>
                 <IconButton aria-label="delete" size="small">
                 <DeleteIcon fontSize="inherit" />
                 </IconButton>
@@ -56,6 +57,15 @@ const [ state, dispatch ] = useContext(StateContext);
   );
 }
 
+
+// const onAdd = (product) => {
+//     const doesExist = state.find(i => i.id === product.id);
+//     if(doesExist){
+//         setState(state.map(i => i.id === product.id ? {...doesExist, qty: doesExist.qty + 1} : i));
+//     } else {
+//         setState([...state, {...product, qty: 1}])
+//     }
+// };
 
 
 

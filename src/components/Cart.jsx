@@ -5,14 +5,7 @@ import CartList from './CartList';
 function Cart() {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
-    // const onAdd = (product) => {
-    //     const doesExist = cartItems.find(i => i.id === product.id);
-    //     if(doesExist){
-    //         setCartItems(cartItems.map(i => i.id === product.id ? {...doesExist, qty: doesExist.qty + 1} : x));
-    //     } else {
-    //         setCartItems([...cartItems, {...product, qty: 1}])
-    //     }
-    // };
+ 
 
     return ( 
         <>
