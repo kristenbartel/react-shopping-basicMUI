@@ -17,22 +17,36 @@ const buttons = [
   <Button key="two">Checkout</Button>,
 ];
 
+
 export default function CartList() {
 const [ state, dispatch ] = useContext(StateContext);
-const _handleDelete = (e, dispatch) => {
-    e.preventDefault();
+
+const cartItems = 
+state.map((i) => i.qty * i.price, 0)
+console.log(cartItems)
+
+const initialValue = 0;
+const sumWithInitial = cartItems.reduce(
+  (previousValue, currentValue) => previousValue + currentValue,
+initialValue
+);
+console.log(sumWithInitial);
+
+
+const _handleDelete = (itemID) => {
     dispatch({
       type: "DELETE_FROM_CART",
-      state: state
+      product: itemID
     })  
-    console.log(state);
   };
 
   return (
+    //   inside the return:
+        // the price would be a helper function that is called in where the i.price is brought in as a parameter
       <>
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
        {state.map((i) => (
-             <ListItem key={i.id}>
+            <ListItem key={i.id}>
                 <ListItemAvatar>
                 <Avatar>
                 <img src={i.image} alt={i.productName} />
@@ -40,20 +54,29 @@ const _handleDelete = (e, dispatch) => {
                 </ListItemAvatar>
                 <ListItemText primary= {i.productName} secondary={`$${i.price}`} />
                 <p>{i.qty}</p>
-                <IconButton aria-label="delete" size="small">
-                <DeleteIcon fontSize="inherit" onClick={(e) => _handleDelete(e, dispatch)}/>
+                <IconButton aria-label="delete" size="small" onClick={() => _handleDelete(i.id)} >
+                <DeleteIcon fontSize="inherit" />
                 </IconButton>
              </ListItem>    
        ))
        }
+    {/* the total
+     would the total be another state.map that would capture the i.price from above and add i then render in MUI? */}
+     <>
+    
+       <ListItem >
+       <ListItemText primary= 'total' secondary={sumWithInitial}></ ListItemText>
+       </ListItem>
+       </>
     </List>
+
     <Box
       sx={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         '& > *': {
-          m: 1,
+        m: 1,
         },
       }}
     >
@@ -64,17 +87,3 @@ const _handleDelete = (e, dispatch) => {
     </>
   );
 }
-
-
-// const onAdd = (product) => {
-//     const doesExist = state.find(i => i.id === product.id);
-//     if(doesExist){
-//         setState(state.map(i => i.id === product.id ? {...doesExist, qty: doesExist.qty + 1} : i));
-//     } else {
-//         setState([...state, {...product, qty: 1}])
-//     }
-// };
-
-
-
-
