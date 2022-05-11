@@ -4,6 +4,12 @@ import Main from './components/Main';
 import data from './data';
 import { StateProvider } from './context';
 import { useReducer } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import About from './components/About';
+import { Fragment } from 'react';
+import Login from './components/Login';
+import Splash from './components/Splash';
+
 
 export default function App() {
 
@@ -36,13 +42,45 @@ const {product} = action;
 // Do I need this to pass data props to the NavBar
 const { products } = data
   return (
-  <div>
   <StateProvider value={useReducer(reducer, initialState)}>
-      <NavBar />
-      <Main productData={products} />
+  <BrowserRouter>
+  <Routes>
+  <Route path='/'
+          element = {
+            <Fragment>
+              {/* <Splash > */}
+              <NavBar />
+              <Main productData={products} />
+              {/* </Splash> */}
+            </Fragment>
+          }
+        />
+    <Route path='about' element={<About />} />
+    <Route path='login' element={<Login />} />
+  </Routes>
+  </BrowserRouter>
   </StateProvider>
-  </div>
   );
 }
+
+/* <BrowserRouter>
+      <Routes>
+        <Route path=‘/’
+          element = {
+            <Fragment>
+              <Nav />
+              <img src=“background.jpg” alt=“Logo” className=‘background’ />
+              <Basket cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} countCartItems={cartItems.length} Checkout={Checkout} />
+              <Main products={products} onAdd={onAdd}></Main>
+              <Copyright />
+            </Fragment>
+          }
+        />
+        <Route path=‘about’ element={<About />} />
+        <Route path=‘/login’ element={<SignInSide />} />
+        <Route path=‘/signup’ element={<SignUp />} />
+        {/* <Route path=‘/SeeCode’ element={<SeeCode />} /> */
+    //   </Routes>
+    // </BrowserRouter> */}
 
 

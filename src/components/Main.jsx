@@ -4,7 +4,7 @@ function Main(props) {
     const { productData } = props;
     return(
         <main>
-        <h2>Main</h2>
+        <h2></h2>
         <div>
             {productData.map((oneProduct) => (
                 <Product key={oneProduct.id} productData={oneProduct} />
