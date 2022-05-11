@@ -39,7 +39,6 @@ const {product} = action;
     default: return state;
 }};
 
-// Do I need this to pass data props to the NavBar
 const { products } = data
   return (
   <StateProvider value={useReducer(reducer, initialState)}>
