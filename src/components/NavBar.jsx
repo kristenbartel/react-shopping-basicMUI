@@ -3,7 +3,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Cart from "./Cart";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
-import { borderBottom } from "@mui/system";
 
 function NavBar() {
   return (
@@ -27,12 +26,9 @@ function NavBar() {
           style={{ color: "black" }}
         />
         <Stack direction="row" spacing={2}>
-
-
-
-
           <a
-            href='https://github.com/MDarmussa/react-solo-project' target='_blank'
+            href="https://github.com/kristenbartel/react-shopping-basicMUI"
+            target="_blank"
             style={{ textDecoration: "none" }}
           >
             <Button className="navMenu" style={{ color: "black" }}>

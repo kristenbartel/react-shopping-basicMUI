@@ -1,6 +1,6 @@
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import NavBar from '../NavBar';
+import NavBar from "../NavBar";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
@@ -32,18 +32,18 @@ function getStepContent(step) {
 // Theme
 const theme = createTheme({
   typography: {
-    fontFamily: 'Montserrat Alternates',
-      fontWeightLight: 400,
-      fontWeightLight: 500,
-      fontWeightLight: 600,
-      fontWeightLight: 700
+    fontFamily: "Montserrat Alternates",
+    fontWeightLight: 400,
+    fontWeightLight: 500,
+    fontWeightLight: 600,
+    fontWeightLight: 700,
   },
   palette: {
     primary: {
-      main: '#000000'
-    }
-  }
-})
+      main: "#000000",
+    },
+  },
+});
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -61,10 +61,7 @@ export default function Checkout() {
       <CssBaseline />
       <NavBar />
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
-        <Paper
-          elevation={0} 
-          sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
-        >
+        <Paper elevation={0} sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
             Checkout
           </Typography>

@@ -42,11 +42,11 @@ const data = {
       - The model is 176 cm / 5'9" tall and wears an Italian size S
       - Made in Italy`,
       image: 'https://www.valentino.com/variants/images/1647597278020442/F/w2050.jpg',
-      imageModel: 'https://www.valentino.com/variants/images/1647597278018310/R/w2050.jpg'
+      imageModel: 'https://www.valentino.com/variants/images/1647597278020442/D/w2050.jpg'
     },
     {
       id: 4,
-      productName: "CRISPY GOLD CHAIN SHORTS",
+      productName: "CRISP GOLD SHORTS",
       price: 700,
       desc: `- VLogo Chain detail on waist
       - Concealed side zipper and hook and eye fastening
@@ -58,7 +58,7 @@ const data = {
       - The model is 176 cm / 5' 9" tall and wears an Italian size 40
       - Made in Italy`,
       image: 'https://www.valentino.com/variants/images/1647597278030705/F/w2050.jpg',
-      imageModel: 'https://www.valentino.com/variants/images/1647597278030705/R/w2050.jpg'
+      imageModel: 'https://www.valentino.com/variants/images/1647597278030705/A/w2050.jpg'
     },
     {
       id: 5,
@@ -93,7 +93,7 @@ const data = {
     },
     {
       id: 7,
-      productName: "BLUE WASHED DENIM JEANS",
+      productName: "WASHED DENIM JEANS",
       price: 800,
       desc: `Jeans in Blue Washed Denim with Valentino Archive 1985 print.
       - Baggy fit
@@ -110,7 +110,7 @@ const data = {
     },
     {
       id: 8,
-      productName: "BANDANA PRINT CREPE DE CHINE SHIRT",
+      productName: "BANDANA PRINT SHIRT",
       price: 600,
       desc: `
       Archive Manifesto Bandana print shirt in crepe de chine
@@ -127,7 +127,7 @@ const data = {
     },
     {
       id: 9,
-      productName: "CHAIN CREPE COUTURE DRESS",
+      productName: "CHAIN COUTURE DRESS",
       price: 1000,
       desc: `
       Crepe Couture VLogo Chain dress
@@ -164,7 +164,7 @@ const data = {
     },
     {
       id: 11,
-      productName: "COUTURE SHORTS WITH STRIPE",
+      productName: "COUTURE STRIPE SHORTS",
       price: 1800,
       desc: `
       Crepe Couture shorts with striped print

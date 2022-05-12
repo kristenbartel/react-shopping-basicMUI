@@ -1,5 +1,7 @@
 import React from "react";
 import { useContext } from "react";
+import { useState } from "react";
+import { setState } from "react";
 import StateContext from "../context";
 
 // Material
@@ -16,10 +18,9 @@ import List from "@mui/material/List";
 import Slide from "@mui/material/Slide";
 
 // Material Icons
-import CloseIcon from '@mui/icons-material/Close';
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket'
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-
+import CloseIcon from "@mui/icons-material/Close";
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 
 // Dialog Transition
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -38,7 +39,7 @@ export default function Product(props) {
       price: productData.price,
       desc: productData.desc,
       image: productData.image,
-      imageModel: productData.ImageModel
+      imageModel: productData.ImageModel,
     };
     dispatch({
       type: "ADD_TO_CART",
@@ -55,16 +56,46 @@ export default function Product(props) {
     setOpen(false);
   };
 
+  // On Hover Over
+  const clearState = () => {
+    setHover({ ...initialState });
+  };
+
+  const hoverOver = (e) => {
+    setHover(
+      <CardMedia
+        sx={{ maxWidth: 400 }}
+        component="img"
+        height="400"
+        image={productData.imageModel}
+        alt={productData.productName}
+        onMouseLeave={clearState}
+      />
+    );
+  };
+const initialState =  <CardMedia
+sx={{ maxWidth: 400 }}
+component="img"
+height="400"
+image={productData.image}
+alt={productData.productName}
+onMouseEnter={hoverOver}
+/>
+  const [hover, setHover] = useState(initialState);
+
+
+
   return (
     <>
       <Grid item xs={12} sm={6} md={3} padding={2}>
         <Card sx={{ maxWidth: 400 }} elevation={0} square={true}>
-          <CardMedia sx={{ maxWidth: 400 }}
-            component="img"
-            height="400"
-            image={productData.image}
-            alt={productData.productName}
-          />
+          {hover}
+          <Grid item          container
+          spacing={2}
+          direction="row"
+          justify="flex-start"
+          alignItems="flex-star"
+          margin={2}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {productData.productName}
@@ -72,30 +103,37 @@ export default function Product(props) {
             <Typography variant="body2" color="text.secondary">
               ${productData.price}
             </Typography>
+            
             <Button
               autoFocus
               color="inherit"
               onClick={(e) => _handleSubmit(e, dispatch)}
             >
-              <ShoppingBasketIcon sx={{ fontSize: 25 }} style={{color: 'black'}} />
+              <ShoppingBasketIcon
+                sx={{ fontSize: 30 }}
+                style={{ color: "black" }}
+              />
             </Button>
             <Button onClick={handleClickOpen}>
-            <RemoveRedEyeIcon sx={{ fontSize: 30 }} style={{color: 'black'}} ></RemoveRedEyeIcon>
+              <RemoveRedEyeIcon
+                sx={{ fontSize: 30 }}
+                style={{ color: "black" }}
+              ></RemoveRedEyeIcon>
             </Button>
+            
             <Dialog
               fullScreen
               open={open}
               onClose={handleClose}
               TransitionComponent={Transition}
             >
-              <Grid  padding={2} ml={8} mt={8} >
+              <Grid padding={2} ml={8} mt={8}>
                 <List margin={4}>
-                  <ListItem key={productData.id} >
+                  <ListItem key={productData.id}>
                     <img
                       src={productData.image}
                       alt={productData.productName}
                       width={500}
-  
                     />
                     <ListItemText></ListItemText>
                     <ListItemText
@@ -104,36 +142,36 @@ export default function Product(props) {
                       secondary={`$${productData.price}`}
                     />
                     <ListItemText>
-                    <Button
-                    autoFocus
-                    color="inherit"
-                    onClick={(e) => _handleSubmit(e, dispatch)}
-                  >
-                     <ShoppingBasketIcon sx={{ fontSize: 40 }} style={{color: 'black'}} />
-                  </Button>
+                      <Button
+                        autoFocus
+                        color="inherit"
+                        onClick={(e) => _handleSubmit(e, dispatch)}
+                      >
+                        <ShoppingBasketIcon
+                          sx={{ fontSize: 40 }}
+                          style={{ color: "black" }}
+                        />
+                      </Button>
                     </ListItemText>
                     <ListItemText>
-                    <Button autoFocus color="inherit" onClick={handleClose}>
-                    <CloseIcon />
-                  </Button>
+                      <Button autoFocus color="inherit" onClick={handleClose}>
+                        <CloseIcon />
+                      </Button>
                     </ListItemText>
-                     </ListItem>
-                     <ListItem>
-                       <ListItemText>{productData.desc}</ListItemText>
-                     </ListItem>
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText
+                      primary="Description:"
+                      secondary={productData.desc}
+                    ></ListItemText>
+                  </ListItem>
                 </List>
               </Grid>
             </Dialog>
           </CardContent>
+          </Grid>
         </Card>
       </Grid>
     </>
   );
 }
-
-// <img width='100px' src={productData.image} alt={productData.productName} />
-// <h3>{productData.productName}</h3>
-// <div>${productData.price}</div>
-// <div>
-// <button type='submit'>Add to Cart</button>
-// </div>
