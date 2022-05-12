@@ -95,8 +95,6 @@ export default function CartList() {
               onClose={handleClose}
               TransitionComponent={Transition}
             >
-  
-
               <Grid  padding={2} ml={8} mt={8} >
                 <List margin={4}>
                   <ListItem key={i.id} >
@@ -119,7 +117,9 @@ export default function CartList() {
                   </Button>
                     </ListItemText>
                      </ListItem>
-                     <ListItem primary={i.desc} />
+                     <ListItem >
+                       <ListItemText primary='Description:' secondary={i.desc}></ListItemText>
+                     </ListItem>
                 </List>
               </Grid>
             </Dialog>

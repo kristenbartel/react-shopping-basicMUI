@@ -27,7 +27,20 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Montserrat Alternates',
+      fontWeightLight: 400,
+      fontWeightLight: 500,
+      fontWeightLight: 600,
+      fontWeightLight: 700
+  },
+  palette: {
+    primary: {
+      main: '#000000'
+    }
+  }
+})
 
 export default function SignIn() {
   const handleSubmit = (event) => {
@@ -53,7 +66,7 @@ export default function SignIn() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: 'main' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -106,7 +119,6 @@ export default function SignIn() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
     </>

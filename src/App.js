@@ -7,10 +7,11 @@ import { useReducer } from 'react';
 import { BrowserRouter, Routes, Route, UNSAFE_RouteContext } from 'react-router-dom';
 import { Fragment } from 'react';
 import Login from './components/Login';
-import Splash from './components/Splash';
 import { ThemeProvider } from '@mui/material';
 import { createTheme } from '@mui/material/styles'
 import Checkout from './components/checkout/Checkout';
+import Splash from './components/Splash'
+
 
 
 // Theme
@@ -51,7 +52,6 @@ const {product} = action;
       ];
     };
   case "DELETE_FROM_CART":
-    console.log(product)
       return state.map(i => i.id === product ? {...i, qty:(i.qty - 1)} : i ).filter(x => x.qty > 0)
     default: return state;
 }};
@@ -64,10 +64,10 @@ const {product} = action;
   <Route path='/'
           element = {
             <Fragment>
-              {/* <Splash > */}
               <NavBar />
+              <Splash />
               <Main productData={products} />
-              {/* </Splash> */}
+              
             </Fragment>
           }
         />

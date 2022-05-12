@@ -46,7 +46,7 @@ const data = {
     },
     {
       id: 4,
-      productName: "CRISPY GOLD CHAIN SHORTS",
+      productName: "CRISP GOLD SHORTS",
       price: 700,
       desc: `- VLogo Chain detail on waist
       - Concealed side zipper and hook and eye fastening
@@ -93,7 +93,7 @@ const data = {
     },
     {
       id: 7,
-      productName: "BLUE WASHED DENIM JEANS",
+      productName: "WASHED DENIM JEANS",
       price: 800,
       desc: `Jeans in Blue Washed Denim with Valentino Archive 1985 print.
       - Baggy fit
@@ -110,7 +110,7 @@ const data = {
     },
     {
       id: 8,
-      productName: "BANDANA PRINT CREPE DE CHINE SHIRT",
+      productName: "BANDANA PRINT SHIRT",
       price: 600,
       desc: `
       Archive Manifesto Bandana print shirt in crepe de chine
@@ -127,7 +127,7 @@ const data = {
     },
     {
       id: 9,
-      productName: "CHAIN CREPE COUTURE DRESS",
+      productName: "CHAIN COUTURE DRESS",
       price: 1000,
       desc: `
       Crepe Couture VLogo Chain dress
@@ -164,7 +164,7 @@ const data = {
     },
     {
       id: 11,
-      productName: "COUTURE SHORTS WITH STRIPE",
+      productName: "COUTURE STRIPE SHORTS",
       price: 1800,
       desc: `
       Crepe Couture shorts with striped print

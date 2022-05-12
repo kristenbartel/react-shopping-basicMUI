@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import { useState } from "react";
 import StateContext from "../context";
 
 // Material
@@ -55,16 +56,30 @@ export default function Product(props) {
     setOpen(false);
   };
 
+  // On Hover Over
+
+  const hoverOver = (e) => {
+    setHover(<CardMedia sx={{ maxWidth: 400 }}
+      component="img"
+      height="400"
+      image={productData.imageModel}
+      alt={productData.productName}
+    />)
+  }
+
+  const [hover, setHover] = useState( <CardMedia sx={{ maxWidth: 400 }}
+    component="img"
+    height="400"
+    image={productData.image}
+    alt={productData.productName}
+    onMouseEnter={hoverOver}
+  />) 
+
   return (
     <>
       <Grid item xs={12} sm={6} md={3} padding={2}>
         <Card sx={{ maxWidth: 400 }} elevation={0} square={true}>
-          <CardMedia sx={{ maxWidth: 400 }}
-            component="img"
-            height="400"
-            image={productData.image}
-            alt={productData.productName}
-          />
+          {hover} 
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {productData.productName}
@@ -119,7 +134,7 @@ export default function Product(props) {
                     </ListItemText>
                      </ListItem>
                      <ListItem>
-                       <ListItemText>{productData.desc}</ListItemText>
+                       <ListItemText primary='Description:' secondary={productData.desc}></ListItemText>
                      </ListItem>
                 </List>
               </Grid>
