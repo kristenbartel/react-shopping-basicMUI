@@ -17,28 +17,26 @@ import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlin
 import Slide from "@mui/material/Slide";
 import Grid from "@mui/material/Grid";
 import Dialog from "@mui/material/Dialog";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 
-
-  // Dialog Transition
-  const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-  });
+// Dialog Transition
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export default function CartList() {
   const [state, dispatch] = useContext(StateContext);
- 
+
   // Sum Cart Items
   const cartItems = state.map((i) => i.qty * i.price, 0);
-  
+
   const initialValue = 0;
   const sumWithInitial = cartItems.reduce(
     (previousValue, currentValue) => previousValue + currentValue,
     initialValue
   );
-  
 
   // Delete handler
   const _handleDelete = (itemID) => {
@@ -48,16 +46,15 @@ export default function CartList() {
     });
   };
 
-
   // Dialog Handler
-    const [open, setOpen] = React.useState(false);
-    //   insert props here
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
-    const handleClose = () => {
-      setOpen(false);
-    };
+  const [open, setOpen] = React.useState(false);
+  //   insert props here
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   // Checkout Navigator
   const navigate = useNavigate();
@@ -69,15 +66,18 @@ export default function CartList() {
         {state.map((i) => (
           <ListItem key={i.id}>
             <ListItemAvatar>
-              <Avatar >
+              <Avatar>
                 <img src={i.image} alt={i.productName} />
               </Avatar>
             </ListItemAvatar>
             <ListItemText primary={i.productName} secondary={`$${i.price}`} />
             <ListItemText>
-            <Button onClick={handleClickOpen}>
-            <RemoveRedEyeIcon sx={{ fontSize: 30 }} style={{color: 'grey'}} ></RemoveRedEyeIcon>
-            </Button>
+              <Button onClick={handleClickOpen}>
+                <RemoveRedEyeIcon
+                  sx={{ fontSize: 30 }}
+                  style={{ color: "grey" }}
+                ></RemoveRedEyeIcon>
+              </Button>
             </ListItemText>
             <ListItemText primary="qty" secondary={i.qty}>
               {" "}
@@ -95,15 +95,10 @@ export default function CartList() {
               onClose={handleClose}
               TransitionComponent={Transition}
             >
-              <Grid  padding={2} ml={8} mt={8} >
+              <Grid padding={2} ml={8} mt={8}>
                 <List margin={4}>
-                  <ListItem key={i.id} >
-                    <img
-                      src={i.image}
-                      alt={i.productName}
-                      width={500}
-                      
-                    />
+                  <ListItem key={i.id}>
+                    <img src={i.image} alt={i.productName} width={500} />
                     <ListItemText></ListItemText>
                     <ListItemText
                       padding={8}
@@ -112,14 +107,17 @@ export default function CartList() {
                     />
                     <ListItemText></ListItemText>
                     <ListItemText>
-                    <Button autoFocus color="inherit" onClick={handleClose}>
-                    <CloseIcon />
-                  </Button>
+                      <Button autoFocus color="inherit" onClick={handleClose}>
+                        <CloseIcon />
+                      </Button>
                     </ListItemText>
-                     </ListItem>
-                     <ListItem >
-                       <ListItemText primary='Description:' secondary={i.desc}></ListItemText>
-                     </ListItem>
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText
+                      primary="Description:"
+                      secondary={i.desc}
+                    ></ListItemText>
+                  </ListItem>
                 </List>
               </Grid>
             </Dialog>

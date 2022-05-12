@@ -42,7 +42,7 @@ const data = {
       - The model is 176 cm / 5'9" tall and wears an Italian size S
       - Made in Italy`,
       image: 'https://www.valentino.com/variants/images/1647597278020442/F/w2050.jpg',
-      imageModel: 'https://www.valentino.com/variants/images/1647597278018310/R/w2050.jpg'
+      imageModel: 'https://www.valentino.com/variants/images/1647597278020442/D/w2050.jpg'
     },
     {
       id: 4,
@@ -58,7 +58,7 @@ const data = {
       - The model is 176 cm / 5' 9" tall and wears an Italian size 40
       - Made in Italy`,
       image: 'https://www.valentino.com/variants/images/1647597278030705/F/w2050.jpg',
-      imageModel: 'https://www.valentino.com/variants/images/1647597278030705/R/w2050.jpg'
+      imageModel: 'https://www.valentino.com/variants/images/1647597278030705/A/w2050.jpg'
     },
     {
       id: 5,

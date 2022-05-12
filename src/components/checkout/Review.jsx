@@ -33,18 +33,16 @@ export default function Review() {
       <List disablePadding>
         {state.map((product) => (
           <ListItem key={product.name} sx={{ py: 1, px: 0 }}>
-            <ListItemText
-              primary={product.productName}
-            />
-            <ListItemText primary={product.qty} ></ ListItemText>
+            <ListItemText primary={product.productName} />
+            <ListItemText primary={product.qty}></ListItemText>
             <Typography variant="body2">${product.price}</Typography>
           </ListItem>
         ))}
 
         <ListItem sx={{ py: 1, px: 0 }}>
-          <ListItemText primary="TOTAL" variant='h4 ' />
+          <ListItemText primary="TOTAL" variant="h4 " />
           <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-          ${sumWithInitial}
+            ${sumWithInitial}
           </Typography>
         </ListItem>
       </List>
