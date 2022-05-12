@@ -1,9 +1,8 @@
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import AppBar from "@mui/material/AppBar";
+import NavBar from '../NavBar';
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Toolbar from "@mui/material/Toolbar";
 import Paper from "@mui/material/Paper";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -38,7 +37,11 @@ const theme = createTheme({
       fontWeightLight: 500,
       fontWeightLight: 600,
       fontWeightLight: 700
-    
+  },
+  palette: {
+    primary: {
+      main: '#000000'
+    }
   }
 })
 
@@ -56,7 +59,7 @@ export default function Checkout() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      
+      <NavBar />
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper
           elevation={0} 

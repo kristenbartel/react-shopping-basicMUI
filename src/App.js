@@ -5,13 +5,13 @@ import data from './data';
 import { StateProvider } from './context';
 import { useReducer } from 'react';
 import { BrowserRouter, Routes, Route, UNSAFE_RouteContext } from 'react-router-dom';
-import About from './components/About';
 import { Fragment } from 'react';
 import Login from './components/Login';
 import Splash from './components/Splash';
 import { ThemeProvider } from '@mui/material';
 import { createTheme } from '@mui/material/styles'
 import Checkout from './components/checkout/Checkout';
+
 
 // Theme
 const theme = createTheme({
@@ -21,7 +21,7 @@ const theme = createTheme({
       fontWeightLight: 500,
       fontWeightLight: 600,
       fontWeightLight: 700
-  }
+  },
 })
 
 export default function App() {
@@ -43,7 +43,9 @@ const {product} = action;
         id: product.id,
         productName: product.productName,
         price: product.price,
+        desc: product.desc,
         image: product.image,
+        imageModel: product.imageModel,
         qty: 1
        }, 
       ];
@@ -69,7 +71,6 @@ const {product} = action;
             </Fragment>
           }
         />
-    <Route path='about' element={<About />} />
     <Route path='login' element={<Login />} />
     <Route path='checkout' element={<Checkout />}/>
   </Routes>

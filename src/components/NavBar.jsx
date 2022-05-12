@@ -1,8 +1,6 @@
 import { AppBar, Stack, Typography, Button } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import Cart from "./Cart";
-import SideBar from "./SideBar";
-import HomeIcon from "@mui/icons-material/Home";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
 import { borderBottom } from "@mui/system";
@@ -29,9 +27,12 @@ function NavBar() {
           style={{ color: "black" }}
         />
         <Stack direction="row" spacing={2}>
+
+
+
+
           <a
-            href="/about"
-            className="navMenu"
+            href='https://github.com/MDarmussa/react-solo-project' target='_blank'
             style={{ textDecoration: "none" }}
           >
             <Button className="navMenu" style={{ color: "black" }}>
