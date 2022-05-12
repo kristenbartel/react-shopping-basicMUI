@@ -20,6 +20,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
+
 // Dialog Transition
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -35,7 +36,9 @@ export default function Product(props) {
       id: productData.id,
       productName: productData.productName,
       price: productData.price,
+      desc: productData.desc,
       image: productData.image,
+      imageModel: productData.ImageModel
     };
     dispatch({
       type: "ADD_TO_CART",
@@ -43,9 +46,8 @@ export default function Product(props) {
     });
   };
 
-  // Dialog Handler
+  // Dialog Handler and Props
   const [open, setOpen] = React.useState(false);
-  //   insert props here
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -56,8 +58,8 @@ export default function Product(props) {
   return (
     <>
       <Grid item xs={12} sm={6} md={3} padding={2}>
-        <Card sx={{ maxWidth: 345 }} elevation={0} square={true}>
-          <CardMedia
+        <Card sx={{ maxWidth: 400 }} elevation={0} square={true}>
+          <CardMedia sx={{ maxWidth: 400 }}
             component="img"
             height="400"
             image={productData.image}
@@ -68,8 +70,7 @@ export default function Product(props) {
               {productData.productName}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
+              ${productData.price}
             </Typography>
             <Button
               autoFocus
@@ -87,8 +88,6 @@ export default function Product(props) {
               onClose={handleClose}
               TransitionComponent={Transition}
             >
-  
-
               <Grid  padding={2} ml={8} mt={8} >
                 <List margin={4}>
                   <ListItem key={productData.id} >
@@ -96,7 +95,7 @@ export default function Product(props) {
                       src={productData.image}
                       alt={productData.productName}
                       width={500}
-                      
+  
                     />
                     <ListItemText></ListItemText>
                     <ListItemText
@@ -118,6 +117,9 @@ export default function Product(props) {
                     <CloseIcon />
                   </Button>
                     </ListItemText>
+                     </ListItem>
+                     <ListItem>
+                       <ListItemText>{productData.desc}</ListItemText>
                      </ListItem>
                 </List>
               </Grid>

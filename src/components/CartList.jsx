@@ -29,18 +29,16 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
 export default function CartList() {
   const [state, dispatch] = useContext(StateContext);
-  console.log(state);
-  
-
+ 
   // Sum Cart Items
   const cartItems = state.map((i) => i.qty * i.price, 0);
-  console.log(cartItems);
+  
   const initialValue = 0;
   const sumWithInitial = cartItems.reduce(
     (previousValue, currentValue) => previousValue + currentValue,
     initialValue
   );
-  console.log(sumWithInitial);
+  
 
   // Delete handler
   const _handleDelete = (itemID) => {
@@ -114,21 +112,14 @@ export default function CartList() {
                       primary={i.productName}
                       secondary={`$${i.price}`}
                     />
-                    <ListItemText>
-                    {/* <Button
-                    autoFocus
-                    color="inherit"
-                    onClick={(e) => _handleSubmit(e, dispatch)}
-                  >
-                     <ShoppingBasketIcon sx={{ fontSize: 40 }} style={{color: 'black'}} />
-                  </Button> */}
-                    </ListItemText>
+                    <ListItemText></ListItemText>
                     <ListItemText>
                     <Button autoFocus color="inherit" onClick={handleClose}>
                     <CloseIcon />
                   </Button>
                     </ListItemText>
                      </ListItem>
+                     <ListItem primary={i.desc} />
                 </List>
               </Grid>
             </Dialog>

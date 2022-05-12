@@ -19,14 +19,11 @@ export default function Review() {
   const [state, dispatch] = useContext(StateContext);
 
   const cartItems = state.map((i) => i.qty * i.price, 0);
-  console.log(cartItems);
   const initialValue = 0;
   const sumWithInitial = cartItems.reduce(
     (previousValue, currentValue) => previousValue + currentValue,
     initialValue
   );
-  console.log(sumWithInitial);
-  console.log(state);
 
   return (
     <React.Fragment>
@@ -38,7 +35,6 @@ export default function Review() {
           <ListItem key={product.name} sx={{ py: 1, px: 0 }}>
             <ListItemText
               primary={product.productName}
-              secondary={product.desc}
             />
             <ListItemText primary={product.qty} ></ ListItemText>
             <Typography variant="body2">${product.price}</Typography>
