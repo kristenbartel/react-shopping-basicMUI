@@ -15,6 +15,7 @@ function Cart() {
             color='inherit'
             aria-label='logo'
             onClick={() => setIsDrawerOpen(true)}
+            style={{color: 'black'}}
             >CART
         </Button>  
         <Drawer 
@@ -28,7 +29,7 @@ function Cart() {
                     <Typography 
                     variant='h6' 
                     component='div'
-                    >Cart and Total
+                    > CART
                     </Typography>
                    <CartList />
             </Box>

@@ -4,15 +4,31 @@ import Main from './components/Main';
 import data from './data';
 import { StateProvider } from './context';
 import { useReducer } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, UNSAFE_RouteContext } from 'react-router-dom';
 import About from './components/About';
 import { Fragment } from 'react';
 import Login from './components/Login';
 import Splash from './components/Splash';
+import { ThemeProvider } from '@mui/material';
+import { createTheme } from '@mui/material/styles'
+import Checkout from './components/checkout/Checkout';
 
+// Theme
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Montserrat Alternates',
+      fontWeightLight: 400,
+      fontWeightLight: 500,
+      fontWeightLight: 600,
+      fontWeightLight: 700
+    
+  }
+})
 
 export default function App() {
-
+// Data
+const { products } = data
+// Reducer 
 const initialState = []
 const reducer = (state, action) => {
 const {product} = action;
@@ -38,10 +54,9 @@ const {product} = action;
       return state.map(i => i.id === product ? {...i, qty:(i.qty - 1)} : i ).filter(x => x.qty > 0)
     default: return state;
 }};
-
-// Do I need this to pass data props to the NavBar
-const { products } = data
+// Component Tree
   return (
+  <ThemeProvider theme={theme}>
   <StateProvider value={useReducer(reducer, initialState)}>
   <BrowserRouter>
   <Routes>
@@ -57,30 +72,11 @@ const { products } = data
         />
     <Route path='about' element={<About />} />
     <Route path='login' element={<Login />} />
+    <Route path='checkout' element={<Checkout />}/>
   </Routes>
   </BrowserRouter>
   </StateProvider>
+  </ThemeProvider>
   );
 }
-
-/* <BrowserRouter>
-      <Routes>
-        <Route path=‘/’
-          element = {
-            <Fragment>
-              <Nav />
-              <img src=“background.jpg” alt=“Logo” className=‘background’ />
-              <Basket cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} countCartItems={cartItems.length} Checkout={Checkout} />
-              <Main products={products} onAdd={onAdd}></Main>
-              <Copyright />
-            </Fragment>
-          }
-        />
-        <Route path=‘about’ element={<About />} />
-        <Route path=‘/login’ element={<SignInSide />} />
-        <Route path=‘/signup’ element={<SignUp />} />
-        {/* <Route path=‘/SeeCode’ element={<SeeCode />} /> */
-    //   </Routes>
-    // </BrowserRouter> */}
-
 
