@@ -12,8 +12,6 @@ import { createTheme } from '@mui/material/styles'
 import Checkout from './components/checkout/Checkout';
 import Splash from './components/Splash'
 
-
-
 // Theme
 const theme = createTheme({
   typography: {
@@ -67,7 +65,6 @@ const {product} = action;
               <NavBar />
               <Splash />
               <Main productData={products} />
-              
             </Fragment>
           }
         />

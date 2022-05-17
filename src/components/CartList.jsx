@@ -31,7 +31,6 @@ export default function CartList() {
 
   // Sum Cart Items
   const cartItems = state.map((i) => i.qty * i.price, 0);
-
   const initialValue = 0;
   const sumWithInitial = cartItems.reduce(
     (previousValue, currentValue) => previousValue + currentValue,
@@ -48,7 +47,6 @@ export default function CartList() {
 
   // Dialog Handler
   const [open, setOpen] = React.useState(false);
-  //   insert props here
   const handleClickOpen = () => {
     setOpen(true);
   };
